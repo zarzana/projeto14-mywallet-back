@@ -6,6 +6,6 @@ import { recordValidator } from '../validators/recordValidator.js';
 const router = Router();
 
 router.post('/record', tokenValidator, recordValidator, postRecord);
-router.get('/record', getRecord);
+router.get('/record', tokenValidator, getRecord);
 
 export default router;
