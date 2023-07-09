@@ -16,7 +16,7 @@ export async function getRecord(req, res) {
     const user = res.locals.user;
 
     let records = await db.collection('records').find({ 'userId': user._id }).toArray();
-    records = records.map(({_id, userId, ...keepAttrs}) => keepAttrs)
+    records = records.map(({userId, ...keepAttrs}) => keepAttrs)
 
     res.status(200).send(records);
 
